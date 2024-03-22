@@ -107,18 +107,19 @@ export default function Home() {
                   name="password"
                   placeholder='Enter Password'
                 />
-                <button
-                  lassName="absolute right-4 top-[7px] cursor-pointer"
-                  onClick={showPassword}>
+                <span
+                  className="absolute right-4 top-[7px] cursor-pointer"
+                  onClick={showPassword}
+                >
                   <img
                     src={"/images/eye.png"}
                     width={25}
                     height={25}
                     alt="show/hide"
-                    className="dark:invert invert-0"
+                    className="dark:invert invert-0 hover:opacity-85 transition-all"
                     id="showimg"
                   />
-                </button>
+                </span>
               </div>
             </div>
             <div className="flex justify-center">
