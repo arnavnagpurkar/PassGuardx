@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,11 +17,15 @@ export default function Home() {
   }, []);
 
   const showPassword = () => {
-    if (ref.current) {
-      alert("Show the password");
-      ref.current.src.includes("/images/eyecross.png")
-        ? (ref.current.src = "/images/eye.png")
-        : (ref.current.src = "/images/eyecross.png");
+    const passwordInput = ref.current;
+    const showimg = document.querySelector("#showimg")
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      showimg.src = '/images/eyecross.png';
+    }
+    else {
+      passwordInput.type = 'password';
+      showimg.src = '/images/eye.png';
     }
   };
 
@@ -44,6 +48,7 @@ export default function Home() {
     }
     setPasswordArray([...passwordArray, form]);
     localStorage.setItem("passwords", JSON.stringify([...passwordArray, form]));
+    setForm({ websiteURL: "", username: "", password: "" });
   };
 
   const handleChange = (e) => {
@@ -56,7 +61,7 @@ export default function Home() {
       setPasswordArray([]);
       localStorage.setItem("passwords", JSON.stringify([]));
     }
-  }
+  };
 
   return (
     <>
@@ -76,15 +81,22 @@ export default function Home() {
             <div className="flex w-full justify-between gap-5 sm:flex-row flex-col">
               <input value={form.username} onChange={handleChange} onKeyDown={(e) => { e.key === 'Enter' && savePassword() }} className='dark:bg-zinc-800 dark:text-white rounded-3xl border border-green-500 w-full px-4 py-2' type="text" name="username" placeholder='Enter Username' />
               <div className="relative flex flex-col">
-                <input value={form.password} onChange={handleChange} onKeyDown={(e) => { e.key === 'Enter' && savePassword() }} className='dark:bg-zinc-800 dark:text-white rounded-3xl border border-green-500 px-4 py-2' type="password" name="password" placeholder='Enter Password' />
-                <span className="absolute right-3 top-1 cursor-pointer" onClick={showPassword}>
-                  <Image ref={ref} className='dark:invert p-1' width={30} height={20} src="/images/eye.png" alt="show" />
+                <input ref={ref} value={form.password} onChange={handleChange} onKeyDown={(e) => { e.key === 'Enter' && savePassword() }} className='dark:bg-zinc-800 dark:text-white rounded-3xl border border-green-500 px-4 py-2' type="password" name="password" placeholder='Enter Password' />
+                <span className="absolute right-4 top-[7px] cursor-pointer" onClick={showPassword}>
+                  <img
+                    src={"/images/eye.png"}
+                    width={25}
+                    height={25}
+                    alt="show/hide"
+                    className="dark:invert invert-0"
+                    id="showimg"
+                  />
                 </span>
               </div>
             </div>
             <div className="flex justify-center">
               <button onClick={savePassword} className='flex justify-center items-center bg-green-400 hover:bg-green-300 transition-all rounded-full px-6 py-3 gap-2 w-fit border border-green-900 dark:border-white'>
-                <Image 
+                <Image
                   src={"/images/add.svg"}
                   width={30}
                   height={30}
