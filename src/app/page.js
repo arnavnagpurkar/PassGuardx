@@ -84,10 +84,12 @@ export default function Home() {
             </div>
             <div className="flex justify-center">
               <button onClick={savePassword} className='flex justify-center items-center bg-green-400 hover:bg-green-300 transition-all rounded-full px-6 py-3 gap-2 w-fit border border-green-900 dark:border-white'>
-                <lord-icon
-                  src="https://cdn.lordicon.com/jgnvfzqg.json"
-                  trigger="hover">
-                </lord-icon>
+                <Image 
+                  src={"/images/add.svg"}
+                  width={30}
+                  height={30}
+                  alt="add icon"
+                />
                 <span className="dark:text-black">Add Password</span>
               </button>
             </div>
