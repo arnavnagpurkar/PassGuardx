@@ -77,12 +77,39 @@ export default function Home() {
           </div>
           <h2 className="font-semibold text-2xl mt-8">Add a Password</h2>
           <div className="flex flex-col gap-5 my-8">
-            <input value={form.websiteURL} onChange={handleChange} onKeyDown={(e) => { e.key === 'Enter' && savePassword() }} className='dark:bg-zinc-800 dark:text-white rounded-3xl border border-green-500 w-full px-4 py-2' type="text" name="websiteURL" placeholder='Enter Website URL' />
+            <input
+              value={form.websiteURL}
+              onChange={handleChange}
+              onKeyDown={(e) => { e.key === 'Enter' && savePassword() }}
+              className='dark:bg-zinc-800 dark:text-white rounded-3xl border border-green-500 w-full px-4 py-2'
+              type="text"
+              name="websiteURL"
+              placeholder='Enter Website URL'
+            />
             <div className="flex w-full justify-between gap-5 sm:flex-row flex-col">
-              <input value={form.username} onChange={handleChange} onKeyDown={(e) => { e.key === 'Enter' && savePassword() }} className='dark:bg-zinc-800 dark:text-white rounded-3xl border border-green-500 w-full px-4 py-2' type="text" name="username" placeholder='Enter Username' />
+              <input
+                value={form.username}
+                onChange={handleChange}
+                onKeyDown={(e) => { e.key === 'Enter' && savePassword() }}
+                className='dark:bg-zinc-800 dark:text-white rounded-3xl border border-green-500 w-full px-4 py-2'
+                type="text"
+                name="username"
+                placeholder='Enter Username'
+              />
               <div className="relative flex flex-col">
-                <input ref={ref} value={form.password} onChange={handleChange} onKeyDown={(e) => { e.key === 'Enter' && savePassword() }} className='dark:bg-zinc-800 dark:text-white rounded-3xl border border-green-500 px-4 py-2' type="password" name="password" placeholder='Enter Password' />
-                <span className="absolute right-4 top-[7px] cursor-pointer" onClick={showPassword}>
+                <input
+                  ref={ref}
+                  value={form.password}
+                  onChange={handleChange}
+                  onKeyDown={(e) => { e.key === 'Enter' && savePassword() }}
+                  className='dark:bg-zinc-800 dark:text-white rounded-3xl border border-green-500 px-4 py-2'
+                  type="password"
+                  name="password"
+                  placeholder='Enter Password'
+                />
+                <button
+                  lassName="absolute right-4 top-[7px] cursor-pointer"
+                  onClick={showPassword}>
                   <img
                     src={"/images/eye.png"}
                     width={25}
@@ -91,27 +118,41 @@ export default function Home() {
                     className="dark:invert invert-0"
                     id="showimg"
                   />
-                </span>
+                </button>
               </div>
             </div>
             <div className="flex justify-center">
-              <button onClick={savePassword} className='flex justify-center items-center bg-green-400 hover:bg-green-300 transition-all rounded-full px-6 py-3 gap-2 w-fit border border-green-900 dark:border-white'>
+              <button
+                onClick={savePassword}
+                className='flex justify-center items-center bg-green-400 hover:bg-green-300 transition-all rounded-full px-6 py-3 gap-2 w-fit border border-green-900 dark:border-white'
+              >
                 <Image
                   src={"/images/add.svg"}
                   width={30}
                   height={30}
                   alt="add icon"
                 />
-                <span className="dark:text-black">Add Password</span>
+                <span className="dark:text-black">
+                  Add Password
+                </span>
               </button>
             </div>
           </div>
           <div className="flex justify-between">
-            <h2 className="font-semibold text-2xl mt-8">Your Passwords</h2>
-            {passwordArray.length > 0 && <button onClick={deleteAll} className="font-medium transition-all text-lg mt-8 mr-4 bg-green-400 hover:bg-green-300 px-5 py-2 rounded-full dark:text-black">Delete All</button>}
+            <h2 className="font-semibold text-2xl mt-8">
+              Your Passwords
+            </h2>
+            {passwordArray.length > 0 && <button
+              onClick={deleteAll}
+              className="font-medium transition-all text-lg mt-8 mr-4 bg-green-400 hover:bg-green-300 px-5 py-2 rounded-full dark:text-black"
+            >
+              Delete All
+            </button>}
           </div>
           {passwordArray.length === 0 ? (
-            <div className='dark:font-normal font-light mt-4'>No Passwords to show, add some passwords to view them</div>
+            <div className='dark:font-normal font-light mt-4'>
+              No Passwords to show, add some passwords to view them
+            </div>
           ) : (
             <table className="table-auto w-full rounded-md overflow-hidden mt-5">
               <thead className='dark:bg-zinc-900 bg-zinc-200'>
@@ -126,15 +167,25 @@ export default function Home() {
                 {passwordArray.map((item, index) => {
                   return <tr key={index}>
                     <td className='py-2 dark:border-none border text-center w-32'>
-                      <Link className="dark:text-blue-400 dark:hover:text-blue-500 text-blue-700 hover:text-blue-800 transition-all" href={item.websiteURL} target="_blank">
+                      <Link
+                        className="dark:text-blue-400 dark:hover:text-blue-500 text-blue-700 hover:text-blue-800 transition-all"
+                        href={item.websiteURL}
+                        target="_blank"
+                      >
                         {item.websiteURL}
                       </Link>
                     </td>
-                    <td className='py-2 dark:border-none border text-center w-32'>{item.username}</td>
-                    <td className='py-2 dark:border-none border text-center w-32'>{item.password}</td>
+                    <td className='py-2 dark:border-none border text-center w-32'>
+                      {item.username}
+                    </td>
+                    <td className='py-2 dark:border-none border text-center w-32'>
+                      {item.password}
+                    </td>
                     <td className="py-2 dark:border-none border text-center w-32">
                       <ul className="flex gap-5 justify-center items-center">
-                        <li>Delete</li>
+                        <li>
+                          Delete
+                        </li>
                       </ul>
                     </td>
                   </tr>
