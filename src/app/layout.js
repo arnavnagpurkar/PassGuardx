@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
       <body className="dark:bg-zinc-950 dark:text-white">
         <Navbar />
         {children}
-        <script className="https://cdn.lordicon.com/lordicon.js" strategy="lazyOnload"></script>
+        <script src="https://cdn.lordicon.com/lordicon.js"></script>
       </body>
     </html>
   );
