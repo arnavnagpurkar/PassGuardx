@@ -46,6 +46,13 @@ export default function Home() {
       alert("Please Fill Password");
       return;
     }
+    const charNotAllowed = [' ', '\t', '\n', '\r', '\x0b', '\x0c', "'", '"', '\\', '/', ';', ':', '|', ',', '.', '<', '>', '?', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '`', '~', '[', ']', '{', '}', '§', '±', '£', '€', '¥', '¢', '©', '®', '™', 'µ', '¬', '¦'];
+    for (const char of form.password) {
+      if (charNotAllowed.includes(char)) {
+        alert("Some characters are not allowed in the password");
+        return;
+      }
+    }
     setPasswordArray([...passwordArray, form]);
     localStorage.setItem("passwords", JSON.stringify([...passwordArray, form]));
     setForm({ websiteURL: "", username: "", password: "" });
@@ -189,15 +196,15 @@ export default function Home() {
                     <td className='py-2 dark:border-none border text-center w-32'>
                       {item.username}
                     </td>
-                    <td className='py-2 dark:border-none border text-center w-32'>
+                    <td className='py-2 dark:border-none border text-center w-32' type="password">
                       {item.password}
                     </td>
                     <td className="py-2 dark:border-none border text-center w-32">
                       <ul className="flex gap-5 justify-center items-center">
                         <li className="flex items-center justify-center">
                           <button
-                           onClick={()=>{deleteCredential(index);}}
-                           className="hover:opacity-80 transition-all"
+                            onClick={() => { deleteCredential(index); }}
+                            className="hover:opacity-80 transition-all"
                           >
                             <Image
                               src={"/images/delete.svg"}
