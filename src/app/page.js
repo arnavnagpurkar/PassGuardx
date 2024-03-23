@@ -2,7 +2,7 @@
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import PassGuard from "@/components/PassGuard";
+import PassGuard from "@/components/PassGuardx";
 
 export default function Home() {
   const ref = useRef(null);

@@ -2,8 +2,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 export const metadata = {
-  title: "PassGuard",
-  description: "PassGuard ",
+  title: "PassGuardx",
+  description: "PassGuardx is the best and the most secure password manager available on the internet. It is created by Arnav Nagpurkar ",
 };
 
 export default function RootLayout({ children }) {

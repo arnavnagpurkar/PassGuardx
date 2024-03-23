@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import Image from "next/image";
-import PassGuard from "./PassGuard";
+import PassGuard from "./PassGuardx";
 
 function Navbar() {
   const toggleModes = () => {
