@@ -63,6 +63,16 @@ export default function Home() {
     }
   };
 
+  const deleteCredential = (index) => {
+    const confirmation = confirm("Are you sure you want to delete this password?");
+    if (confirmation) {
+      const updatedPass = [...passwordArray];
+      updatedPass.splice(index, 1);
+      setPasswordArray(updatedPass);
+      localStorage.setItem("passwords", JSON.stringify(updatedPass));
+    }
+  };
+
   return (
     <>
       <main>
@@ -184,8 +194,19 @@ export default function Home() {
                     </td>
                     <td className="py-2 dark:border-none border text-center w-32">
                       <ul className="flex gap-5 justify-center items-center">
-                        <li>
-                          Delete
+                        <li className="flex items-center justify-center">
+                          <button
+                           onClick={()=>{deleteCredential(index);}}
+                           className="hover:opacity-80 transition-all"
+                          >
+                            <Image
+                              src={"/images/delete.svg"}
+                              width={18}
+                              height={18}
+                              alt="delete"
+                              className="dark:invert invert-0"
+                            />
+                          </button>
                         </li>
                       </ul>
                     </td>
