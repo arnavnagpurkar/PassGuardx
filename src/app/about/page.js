@@ -25,7 +25,7 @@ function About() {
           Security and Data Privacy:
         </h2>
         <p className="mt-2">
-          <PassGuardx/> prioritizes security and data privacy by utilizing client-side storage through `localStorage`. This means that all passwords are securely stored locally on the user's machine and never transmitted to any server. By leveraging the browser's `localStorage` API, PassGuardx ensures that user passwords remain private and inaccessible to anyone other than the user themselves. This approach enhances security and gives users full control over their sensitive information, mitigating the risks associated with storing passwords on remote servers.
+        <PassGuardx /> prioritizes security and data privacy by utilizing client-side storage through &apos;localStorage&apos;. This means that all passwords are securely stored locally on the user&apos;s machine and never transmitted to any server. By leveraging the browser&apos;s &apos;localStorage&apos; API, PassGuardx ensures that user passwords remain private and inaccessible to anyone other than the user themselves. This approach enhances security and gives users full control over their sensitive information, mitigating the risks associated with storing passwords on remote servers.
         </p>
         <h2 className="text-2xl font-medium mt-7">
           Creation:
