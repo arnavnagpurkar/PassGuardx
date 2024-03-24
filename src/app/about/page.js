@@ -45,7 +45,7 @@ function About() {
           About:
         </h2>
         <p className="mt-2">
-          <PassGuardx /> is the most secure and best free open-source password manager available on the internet. It's designed to provide users with a seamless and secure experience for managing their passwords across various platforms.
+          <PassGuardx /> is the most secure and best free open-source password manager available on the internet. It&apos;s designed to provide users with a seamless and secure experience for managing their passwords across various platforms.
         </p>
         <h2 className="text-2xl font-medium mt-7">
           Future Plans:
