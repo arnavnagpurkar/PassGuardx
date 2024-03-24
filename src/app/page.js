@@ -208,10 +208,18 @@ export default function Home() {
             <table className="table-auto w-full rounded-md overflow-hidden mt-5 sm:text-base text-[12px]">
               <thead className='dark:bg-zinc-900 bg-zinc-200'>
                 <tr>
-                  <th className='py-2'>Site</th>
-                  <th className='py-2'>Username</th>
-                  <th className='py-2'>Password</th>
-                  <th className="py-2">Actions</th>
+                  <th className='py-2'>
+                    Site
+                  </th>
+                  <th className='py-2'>
+                    Username
+                  </th>
+                  <th className='py-2'>
+                    Password
+                  </th>
+                  <th className="py-2">
+                    Actions
+                  </th>
                 </tr>
               </thead>
               <tbody className='dark:bg-zinc-800 bg-green-100 '>
@@ -264,7 +272,8 @@ export default function Home() {
                     <td className='py-2 dark:border-none border text-center w-32' type="password">
                       <div className="flex gap-3 justify-center items-center">
                         <span>
-                          {item.password}
+                          {/* Hiding user's password for security purposes */}
+                          {"•".repeat(item.password.length)}
                         </span>
                         <button
                           onClick={() => copyText(item.password)}
