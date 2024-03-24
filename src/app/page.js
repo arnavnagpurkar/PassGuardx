@@ -46,7 +46,7 @@ export default function Home() {
       alert("Please Fill Password");
       return;
     }
-    const charNotAllowed = [' ', '\t', '\n', '\r', '\x0b', '\x0c', "'", '"', '\\', '/', ';', ':', '|', ',', '.', '<', '>', '?', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '`', '~', '[', ']', '{', '}', '§', '±', '£', '€', '¥', '¢', '©', '®', '™', 'µ', '¬', '¦'];
+    const charNotAllowed = [' ', '\t', '\n', '\r', '\x0b', '\x0c', '(', ')', '§', '±', '©', '®', '™', 'µ', '¬', '¦'];
     for (const char of form.password) {
       if (charNotAllowed.includes(char)) {
         alert("Some characters are not allowed in the password");
