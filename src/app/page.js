@@ -3,6 +3,8 @@ import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PassGuard from "@/components/PassGuardx";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 export default function Home() {
   const ref = useRef(null);
@@ -80,8 +82,23 @@ export default function Home() {
     }
   };
 
+  const copyText = (text) => {
+    navigator.clipboard.writeText(text);
+    toast.success("Copied to clipboard", {
+      style: {
+        marginTop: "6rem",
+        background: document.querySelector("html").classList.contains("dark") && "#333",
+        color: document.querySelector("html").classList.contains("dark") && "#fff"
+      }
+    })
+  }
+
   return (
     <>
+      {/* Toaster for user convinence */}
+      <Toaster
+        position="top-right"
+      />
       <main>
         <div className="lg:mx-60 mx-2 my-5 ">
           <div className="info">
@@ -172,7 +189,7 @@ export default function Home() {
               No Passwords to show, add some passwords to view them
             </div>
           ) : (
-            <table className="table-auto w-full rounded-md overflow-hidden mt-5">
+            <table className="table-auto w-full rounded-md overflow-hidden mt-5 sm:text-base text-[12px]">
               <thead className='dark:bg-zinc-900 bg-zinc-200'>
                 <tr>
                   <th className='py-2'>Site</th>
@@ -185,19 +202,67 @@ export default function Home() {
                 {passwordArray.map((item, index) => {
                   return <tr key={index}>
                     <td className='py-2 dark:border-none border text-center w-32'>
-                      <Link
-                        className="dark:text-blue-400 dark:hover:text-blue-500 text-blue-700 hover:text-blue-800 transition-all"
-                        href={item.websiteURL}
-                        target="_blank"
-                      >
-                        {item.websiteURL}
-                      </Link>
+                      <div className="flex gap-3 justify-center items-center">
+                        <span>
+                          <Link
+                            className="dark:text-blue-400 dark:hover:text-blue-500 text-blue-700 hover:text-blue-800 transition-all"
+                            href={item.websiteURL}
+                            target="_blank"
+                          >
+                            {item.websiteURL}
+                          </Link>
+                        </span>
+                        <button
+                          onClick={() => copyText(item.websiteURL)}
+                          className="hover:opacity-80 transition-all"
+                        >
+                          <Image
+                            src={"/images/copy.svg"}
+                            width={18}
+                            height={18}
+                            alt="copy"
+                            className="dark:invert invert-0"
+                          />
+                        </button>
+                      </div>
                     </td>
                     <td className='py-2 dark:border-none border text-center w-32'>
-                      {item.username}
+                      <div className="flex gap-3 justify-center items-center">
+                        <span>
+                          {item.username}
+                        </span>
+                        <button
+                          onClick={() => copyText(item.username)}
+                          className="hover:opacity-80 transition-all"
+                        >
+                          <Image
+                            src={"/images/copy.svg"}
+                            width={18}
+                            height={18}
+                            alt="copy"
+                            className="dark:invert invert-0"
+                          />
+                        </button>
+                      </div>
                     </td>
                     <td className='py-2 dark:border-none border text-center w-32' type="password">
-                      {item.password}
+                      <div className="flex gap-3 justify-center items-center">
+                        <span>
+                          {item.password}
+                        </span>
+                        <button
+                          onClick={() => copyText(item.password)}
+                          className="hover:opacity-80 transition-all"
+                        >
+                          <Image
+                            src={"/images/copy.svg"}
+                            width={18}
+                            height={18}
+                            alt="copy"
+                            className="dark:invert invert-0"
+                          />
+                        </button>
+                      </div>
                     </td>
                     <td className="py-2 dark:border-none border text-center w-32">
                       <ul className="flex gap-5 justify-center items-center">
