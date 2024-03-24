@@ -115,14 +115,14 @@ export default function Home() {
       <Toaster
         position="top-right"
       />
-      <main>
+      <main className="min-h-[78vh]">
         <div className="lg:mx-60 mx-2 my-5 ">
           <div className="info">
             <h1 className="text-4xl font-bold text-center md:mt-14 mt-2">
               <PassGuard />
             </h1>
             <p className="text-lg text-center my-3">
-              The best free and open source password manager available on the internet.
+              The best free and open source <strong>Password Manager</strong> available on the internet.
             </p>
           </div>
           <h2 className="font-semibold text-2xl mt-8">Add a Password</h2>
