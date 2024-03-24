@@ -69,6 +69,14 @@ export default function Home() {
     if (confirmation) {
       setPasswordArray([]);
       localStorage.setItem("passwords", JSON.stringify([]));
+      toast.success("Deleted all passwords", {
+        icon: '🗑️',
+        style: {
+          marginTop: "6rem",
+          background: document.querySelector("html").classList.contains("dark") && "#333",
+          color: document.querySelector("html").classList.contains("dark") && "#fff"
+        }
+      })
     }
   };
 
@@ -79,6 +87,14 @@ export default function Home() {
       updatedPass.splice(index, 1);
       setPasswordArray(updatedPass);
       localStorage.setItem("passwords", JSON.stringify(updatedPass));
+      toast.success("Deleted password", {
+        icon: '🗑️',
+        style: {
+          marginTop: "6rem",
+          background: document.querySelector("html").classList.contains("dark") && "#333",
+          color: document.querySelector("html").classList.contains("dark") && "#fff"
+        }
+      })
     }
   };
 
