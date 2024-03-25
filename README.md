@@ -17,15 +17,21 @@ PassGuardx is a simple password manager application built using Next.js and Tail
 
 PassGuardx prioritizes security and data privacy by utilizing client-side storage through `localStorage`. This means that all passwords are securely stored locally on the user's machine and never transmitted to any server. By leveraging the browser's `localStorage` API, PassGuardx ensures that user passwords remain private and inaccessible to anyone other than the user themselves. This approach enhances security and gives users full control over their sensitive information, mitigating the risks associated with storing passwords on remote servers.
 
-## Development
+## Run on local machine
+
+**Prerequisites**:
+   - Git installed on PC
+   - Node.js version 18 or higher installed
+
+**Installation**
 
 1. Clone the repository: `git clone https://github.com/arnavnagpurkar/PassGuardx`
 2. Navigate to the project directory: `cd PassGuardx`
 3. Install dependencies: 
-   - Using npm: `npm install`
+   - Using npm: `npm install` (default with node.js)
    - Using yarn: `yarn install`
 4. Run the development server: 
-   - Using npm: `npm run dev`
+   - Using npm: `npm run dev` (default with node.js)
    - Using yarn: `yarn dev`
 5. Open your web browser and go to `localhost:3000`.
 
@@ -46,7 +52,7 @@ PassGuardx prioritizes security and data privacy by utilizing client-side storag
 
 ## Credits
 
-This project was created by [Arnav Nagpurkar](https://github.com/arnavnagpurkar) alone.
+This project was created by [Arnav Nagpurkar](https://github.com/arnavnagpurkar) in 2024.
 
 ## License
 
